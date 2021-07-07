@@ -1,0 +1,13 @@
+profile: aiida
+first_name: Chris
+last_name: Sewell
+institution: EPFL
+email: christopher.sewell@epfl.ch
+
+db_backend: django
+db_engine: postgresql_psycopg2
+db_host: localhost
+db_username: aiidauser
+db_name: aiidadb
+db_password: password
+db_port: 5432

@@ -336,3 +336,4 @@ ASALocalRun/
 # local folders
 .aiida
 .venvs
+myarchive.aiida
