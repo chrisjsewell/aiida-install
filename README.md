@@ -138,6 +138,7 @@ verdi archive inspect myarchive.aiida
 
 ```
 pip install jupyterlab
+mkdir -p ~/.ipython/profile_default/startup/
 cp aiida_magic_register.py ~/.ipython/profile_default/startup/
 jupyter lab
 ```
