@@ -6,6 +6,7 @@ The tutorial is fully reporoducible using a [VS Code Deveopment Container](https
 It is run using Linux, but should also be applicable to other Operating Systems (MacOS, Windows Subsystem for Linux, etc).
 
 This tutorial is based on the information at: <https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html>, where you can find further information.
+(see also the troubeshooting section: <https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/troubleshooting.html>)
 
 ## Setting up a Python virtual environment
 
@@ -13,6 +14,8 @@ This is important, the ensure the environment remains correct, it is recommended
 
 Using Python `venv` is the simplest way to achieve this, as we do here.
 You could aso use [Conda](https://docs.conda.io), which additionaly allows for installing non-python packages like postgres, rabbitmq and even [quantumespresso](https://anaconda.org/conda-forge/qe)!
+
+> `conda create -n aiida -c conda-forge aiida-core=1.6 aiida-core.services`
 
 ```
 python -m venv .venvs/aiida
@@ -62,7 +65,7 @@ echo "export AIIDA_PATH=\"/workspaces/aiida-install/.aiida\"" >> .venvs/aiida/bi
 echo "$(_VERDI_COMPLETE=source verdi)" >> .venvs/aiida/bin/activate
 ```
 
-(Note in in VS Code, you can also set "terminal.integrated.env.linux" )
+(Note in in VS Code, you can also set "terminal.integrated.env.linux" or in Conda see: <https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#setting-environment-variables>)
 
 ## Setting up the AiiDA services and profile
 
@@ -108,6 +111,8 @@ verdi profile list
 
 We now have multiple profiles set up and you can switch between them.
 
+Note YAML configuration files can also be used for setting up computers and codes. See <https://github.com/aiidateam/aiida-code-registry> for some examples.
+
 ### Rabbitmq process messaging
 
 This service is only required when you want to run processes (not to access data). [RabbitMQ](https://www.rabbitmq.com/) handles storing what processes are running and enables them to persist e.g. if you turn off your computer.
@@ -115,6 +120,8 @@ This service is only required when you want to run processes (not to access data
 ```
 sudo rabbitmq-server -detached start
 ```
+
+(see <https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/troubleshooting.html#rabbitmq-installation-unix> if you have issues with this.)
 
 ```
 verdi status
