@@ -12,7 +12,7 @@ It is run using Linux, but should also be applicable to other OS.
 This is important, the ensure the environment remains correct, it is recommended for any Python based projects.
 
 Using Python `venv` is the simplest way to achieve this, as we do here.
-You could aso use [Conda](https://docs.conda.io), which additionaly allows for installing non-python packages like postgres, rabbotmq and even [quantumespresso](https://anaconda.org/conda-forge/qe)!
+You could aso use [Conda](https://docs.conda.io), which additionaly allows for installing non-python packages like postgres, rabbitmq and even [quantumespresso](https://anaconda.org/conda-forge/qe)!
 
 ```
 python -m venv .venvs/aiida
@@ -24,7 +24,7 @@ pip list
 pip check
 ```
 
-When first calling `verdi` you may note that it will error.
+When first calling `verdi` you may note that it may error.
 
 ```
 verdi
