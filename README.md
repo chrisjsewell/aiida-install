@@ -163,3 +163,5 @@ jupyter lab
 ```
 
 Now open `Example.ipynb` and trying running AiiDA.
+
+Note, you can also use Jupyter within VS Code: <https://code.visualstudio.com/docs/datascience/jupyter-notebooks>

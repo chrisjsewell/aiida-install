@@ -19,12 +19,13 @@
 			}
 		},
 		"terminal.integrated.defaultProfile.linux": "bash",
-		"python.pythonPath": "/workspaces/aiida-install/.venvs/aiida/bin/python",
+		"python.venvPath": "/workspaces/aiida-install/.venvs",
+		"python.defaultInterpreterPath": "/workspaces/aiida-install/.venvs/aiida/bin/python",
 		"python.languageServer": "Pylance",
 		"python.formatting.provider": "black",
-		"python.linting.enabled": true,
+		"python.linting.enabled": false,
 		"python.linting.pylintEnabled": false,
-		"python.linting.flake8Enabled": true,
+		"python.linting.flake8Enabled": false,
 		// "python.formatting.autopep8Path": "/usr/local/py-utils/bin/autopep8",
 		// "python.formatting.blackPath": "/usr/local/py-utils/bin/black",
 		// "python.formatting.yapfPath": "/usr/local/py-utils/bin/yapf",
@@ -40,6 +41,7 @@
 	"extensions": [
 		"ms-python.python",
 		"ms-python.vscode-pylance",
+		"ms-toolsai.jupyter",
 		"chrisjsewell.aiida-explore-vscode"
 	],
 
