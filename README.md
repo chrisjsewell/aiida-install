@@ -2,10 +2,10 @@
 
 Repository: https://github.com/chrisjsewell/aiida-install
 
-This tutorial is based on the information at: <https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html>
+The tutorial is fully reporoducible using a [VS Code Deveopment Container](https://code.visualstudio.com/docs/remote/containers).
+It is run using Linux, but should also be applicable to other Operating Systems (MacOS, Windows Subsystem for Linux, etc).
 
-This tutorial is fully reporoducible using a [VS Code Deveopment Container](https://code.visualstudio.com/docs/remote/containers).
-It is run using Linux, but should also be applicable to other OS.
+This tutorial is based on the information at: <https://aiida.readthedocs.io/projects/aiida-core/en/latest/intro/get_started.html>, where you can find further information.
 
 ## Setting up a Python virtual environment
 
@@ -66,11 +66,15 @@ echo "$(_VERDI_COMPLETE=source verdi)" >> .venvs/aiida/bin/activate
 
 ## Setting up the AiiDA services and profile
 
-AiiDA uses a number of external services to run:
+AiiDA uses a number of external services to run.
+Note these services are not actually required to be on your local system, they are accessed by AiiDA using web-based protocols.
+For this demonstration though, we shall set them up locally.
 
 ![aiida microservices](./aiida-microservices.png)
 
 ### Postgres database
+
+To read/write all the data AiiDA uses, the principle service is a "backend" database. AiiDA principally uses [PostgreSQL](https://www.postgresql.org/) for this purpose.
 
 ```
 sudo apt update
@@ -82,6 +86,9 @@ sudo chown -R vscode:vscode /var/run/postgresql
 ```
 
 (set `PGDATA` environmental variable, to use pg_ctl without `-D`)
+
+We can now set up our AiiDA profile.
+`verdi quicksetup` can automatically search for the running PostgreSQL service, store the connections details and set up the initial database schema:
 
 ```
 verdi quicksetup --help
@@ -99,9 +106,11 @@ verdi quicksetup --config quicksetup.yml
 verdi profile list
 ```
 
+We now have multiple profiles set up and you can switch between them.
+
 ### Rabbitmq process messaging
 
-This is only required when you want to run processes (not to access data).
+This service is only required when you want to run processes (not to access data). [RabbitMQ](https://www.rabbitmq.com/) handles storing what processes are running and enables them to persist e.g. if you turn off your computer.
 
 ```
 sudo rabbitmq-server -detached start
@@ -110,6 +119,9 @@ sudo rabbitmq-server -detached start
 ```
 verdi status
 ```
+
+To handle the actual running of the processes, we need to start one or more "daemon" (a.k.a background) processes.
+You can start as many as you want, but should limit to the number of actua CPUs on your computer.
 
 ```
 verdi daemon start 2
@@ -143,4 +155,4 @@ cp aiida_magic_register.py ~/.ipython/profile_default/startup/
 jupyter lab
 ```
 
-Now open `Example.ipynb`
+Now open `Example.ipynb` and trying running AiiDA.
