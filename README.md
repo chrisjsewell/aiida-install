@@ -102,7 +102,7 @@ verdi config list
 verdi database summary -v
 ```
 
-Alternatively, you can use a configuration file:
+Alternatively, you can use a [YAML](https://en.wikipedia.org/wiki/YAML) configuration file:
 
 ```
 verdi quicksetup --config quicksetup.yml
