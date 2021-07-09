@@ -1,5 +1,7 @@
 # AiiDA Install Tutorial
 
+[![Open in Visual Studio Code](https://open.vscode.dev/badges/open-in-vscode.svg)](https://open.vscode.dev/chrisjsewell/aiida-install)
+
 Repository: https://github.com/chrisjsewell/aiida-install
 
 The tutorial is fully reporoducible using a [VS Code Deveopment Container](https://code.visualstudio.com/docs/remote/containers).
